@@ -1,0 +1,34 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Settlement{% endblock %}
+
+{% block body %}
+    <h1>Settlement</h1>
+
+    <table class="table">
+        <tbody>
+            <tr>
+                <th>Id</th>
+                <td>{{ settlement.id }}</td>
+            </tr>
+            <tr>
+                <th>Month</th>
+                <td>{{ settlement.month ? settlement.month|date('Y-m-d') : '' }}</td>
+            </tr>
+            <tr>
+                <th>TotalExpenses</th>
+                <td>{{ settlement.totalExpenses }}</td>
+            </tr>
+            <tr>
+                <th>Balance</th>
+                <td>{{ settlement.balance }}</td>
+            </tr>
+        </tbody>
+    </table>
+
+    <a href="{{ path('app_settlement_index') }}">back to list</a>
+
+    <a href="{{ path('app_settlement_edit', {'id': settlement.id}) }}">edit</a>
+
+    {{ include('settlement/_delete_form.html.twig') }}
+{% endblock %}
