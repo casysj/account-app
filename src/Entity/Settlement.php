@@ -5,6 +5,7 @@ namespace App\Entity;
 use App\Repository\SettlementRepository;
 use Doctrine\DBAL\Types\Types;
 use Doctrine\ORM\Mapping as ORM;
+use Symfony\Component\Serializer\Annotation\Groups;
 
 #[ORM\Entity(repositoryClass: SettlementRepository::class)]
 #[ORM\HasLifecycleCallbacks]
@@ -14,18 +15,23 @@ class Settlement
     #[ORM\Id]
     #[ORM\GeneratedValue]
     #[ORM\Column]
+    #[Groups(['settlement:read', 'settlement:write'])]
     private ?int $id = null;
 
     #[ORM\Column(type: Types::DATE_MUTABLE)]
+    #[Groups(['settlement:read', 'settlement:write'])]
     private ?\DateTimeInterface $month = null;
 
     #[ORM\ManyToOne(inversedBy: 'settlements')]
+    #[Groups(['settlement:read', 'settlement:write'])]
     private ?User $user = null;
 
     #[ORM\Column]
+    #[Groups(['settlement:read', 'settlement:write'])]
     private ?float $totalExpenses = null;
 
     #[ORM\Column]
+    #[Groups(['settlement:read', 'settlement:write'])]
     private ?float $balance = null;
 
     public function getId(): ?int
