@@ -10,7 +10,7 @@ use Symfony\Component\HttpFoundation\Request;
 use Symfony\Component\Routing\Attribute\Route;
 use Symfony\Component\Serializer\SerializerInterface;
 
-#[('/api')]
+#[Route('/api')]
 class UserController extends AbstractController
 {
     #[Route('/users', name: 'api_users_index', methods: ['GET'])]
