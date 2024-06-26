@@ -1,6 +1,7 @@
 import { createRouter, createWebHistory } from 'vue-router'
 import ExpenseList from '@/components/ExpenseList.vue'
 import AddExpense from '@/components/AddExpense.vue'
+import UserLogin from "@/components/UserLogin.vue";
 
 const routes = [
     {
@@ -12,6 +13,11 @@ const routes = [
         path: '/add-expense',
         name: 'AddExpense',
         component: AddExpense
+    },
+    {
+        path: '/login',
+        name: 'Login',
+        component: UserLogin
     }
 ]
 
